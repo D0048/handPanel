@@ -31,4 +31,4 @@ else
 fi
 
 echo "Installing python libs"
-    sudo pip install numpy dhash tensorflow
+    sudo pip install -U numpy dhash pynput
