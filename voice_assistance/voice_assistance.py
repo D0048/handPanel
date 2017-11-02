@@ -3,6 +3,8 @@
 
 import speech_recognition as sr
 
+import pyaudio;audio=pyaudio.PyAudio();print([audio.get_device_info_by_index(i) for i in range(audio.get_device_count())])
+
 # Record Audio
 r = sr.Recognizer()
 with sr.Microphone(device_index=14) as source:
