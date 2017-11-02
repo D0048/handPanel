@@ -3,12 +3,12 @@ WORK_SPACE='./installation'
 
 #upgrade
 echo "Upgrading system"
-#sudo apt-get update -y;
-#sudo apt-get full-upgrade -y;
+sudo apt-get update -y;
+sudo apt-get full-upgrade -y;
 
 #install deps
 echo "Installing deps"
-#sudo apt-get install git python3.5 python-pip
+sudo apt-get install git python3.5 python-pip screen
 
 
 #prepare work space
@@ -20,15 +20,20 @@ cd WORK_SPACE
 echo "Do you want BetterXtrLock installed?(y/n)"
 read LINE
 if [ "$LINE" = "y" ];then
-        echo "Downloading xtrlock from https://github.com/D0048/Better-XTrLock.git..."
-        git clone https://github.com/D0048/Better-XTrLock.git
-        cd Better-XTrLock
-        #sh ./auto-install
-        echo "This need to be compile manually according to https://github.com/D0048/Better-XTrLock"
-        cd ..
+    echo "Downloading xtrlock from https://github.com/D0048/Better-XTrLock.git..."
+    git clone https://github.com/D0048/Better-XTrLock.git
+    cd Better-XTrLock
+    #sh ./auto-install
+    echo "This need to be compile manually according to https://github.com/D0048/Better-XTrLock"
+    cd ..
 else
-        echo "Skip Xtrlock"
+    echo "Skip Xtrlock"
 fi
 
 echo "Installing python libs"
-    sudo pip install -U numpy dhash pynput
+sudo pip install -U numpy dhash pynput
+sudo apt-get install portaudio19-dev python-all-dev python3-all-dev flac && sudo pip install pyaudio
+sudo pip install -U speechrecognition
+sudo apt install swig libpulse-dev 
+sudo pip install pocketsphinx gTTS
+
